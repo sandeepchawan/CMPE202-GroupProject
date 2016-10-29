@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class CompressionBox here.
  * 
@@ -16,8 +16,12 @@ public class CompressionBox extends Actor
         GreenfootImage image = getImage() ;
         image.scale( 150, 180 ) ;
     }
-    public void act() 
+    Map<String,Integer> pin = new HashMap<String, Integer>();
+    public void act(String name, Integer position) 
     {
         // Add your action code here.
-    }    
+   
+       pin.put(name, position);
+     }
+    
 }
