@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Sentence
+comment0.text=\n\ Write\ a\ description\ of\ class\ Sentence\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=length
+comment1.target=Sentence(int)
+comment2.params=word\ pos
+comment2.target=void\ addWord(java.lang.String,\ int)
+comment3.params=label
+comment3.target=void\ displayWord(java.lang.String)
+comment4.params=
+comment4.target=void\ act()
+numComments=5
