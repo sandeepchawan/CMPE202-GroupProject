@@ -25,7 +25,7 @@ public class Compresso extends World
     private void prepare(){
         CompressionBox box = new CompressionBox();
         addObject(box, 400,420);
-        GreenfootImage text = new GreenfootImage("This is the string to be compressed by player", 40, null, null);
+        GreenfootImage text = new GreenfootImage("This is the string to be compressed by player", 29, null, null);
         getBackground().drawImage(text, 100, 130);
     }
 }
