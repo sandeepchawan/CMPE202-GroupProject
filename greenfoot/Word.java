@@ -10,16 +10,18 @@ import java.awt.Color;
 public class Word extends Actor
 {
    
-    int selected = 0;
+    int selected;
     CompressionWorld cWorld;
     Sentence sentence;
     String text;
+    int addedToHashMap;
 
     public Word(String text)
     {
         //value = val; // save menu option number
         this.text = text;
         this.selected = 0;
+        this.addedToHashMap = 0;
         setImage(new GreenfootImage(" " + text + " ", 20, Color.white, Color.green)); // create the text
     }
     
@@ -64,5 +66,21 @@ public class Word extends Actor
     
     public String getText() {
         return text;
+    }
+    
+    public int getSelected() {
+        return selected;
+    }
+
+     public int getAddedToHashMap() {
+        return addedToHashMap;
+    }
+    
+    public void setSelected(int value) {
+        this.selected = value;
+    }
+    
+    public void setAddedToHashMap(int value){
+        this.addedToHashMap = value;
     }
 }

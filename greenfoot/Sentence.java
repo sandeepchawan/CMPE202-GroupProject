@@ -19,15 +19,17 @@ public class Sentence extends Actor
     private static int x = 40;
     private int length;
     private Word[] wordActors;
-    HashMap<Integer, String> hmap;
+    HashMap<String, Integer> hmap;
+    private int key;
 
     public Sentence (int length) {
-        
+
         GreenfootImage image = getImage() ;
         setImage("buttonPlay.png");
         image.scale(50, 50);
         this.length = length;
-        hmap = new HashMap<Integer, String>();
+        this.key = 1;
+        hmap = new HashMap<String, Integer>();
     }
 
     public void prepare () {
@@ -46,12 +48,12 @@ public class Sentence extends Actor
                 cWorld.addObject(wordActor, x, 200);
                 x += 80;
             }
-             x=40;
+            x=40;
         }   
     }
-    
+
     public void addWord (String word, int pos) {
-       
+
         if (pos < words.length) {
             words[pos] = word;
         }
@@ -59,15 +61,15 @@ public class Sentence extends Actor
     }
 
     public void displayWord(String label) {
-    //    CompressionWorld cWorld = (CompressionWorld) getWorld();
-//        Text word = new Text(label, Color.YELLOW, Color.BLACK);
-     //   cWorld.addObject(word, 100, 100);
+        //    CompressionWorld cWorld = (CompressionWorld) getWorld();
+        //        Text word = new Text(label, Color.YELLOW, Color.BLACK);
+        //   cWorld.addObject(word, 100, 100);
     }
 
     public void act() 
     {
         // Add your action code here.
-        
+
         //displayWord("Test");
         if (Greenfoot.mouseClicked(this)) {
             System.out.println("Clicked on Sentence!");
@@ -77,26 +79,104 @@ public class Sentence extends Actor
         displayWord(words[i]);
         } */
     }    
-    
+
     public void actOnWord(String text) {
-        //Toggle all words, and if word is set, change color, else dont
+        //Toggle for this word and similar words in the array
         for (int i=0; i<words.length; i++) {
             if (wordActors[i].getText() == text) {
                 wordActors[i].toggle();
+                System.out.println("Toggled word !!!");
+                //wordActors[i] = word;
+                // if (word.getSelected() == 1) {
+                // updateSimilarInSentence(wordActors[i].getText(), 1);
+                // } else {
+                // updateSimilarInSentence(wordActors[i].getText(), 0);
+                // }
+                // return;
             }
         }
-        
+
+        updateHashMap();
+
     }
-    
+
+    public void updateHashMap() {
+        for (int i=0; i<words.length; i++) {
+
+            if (wordActors[i].getSelected() == 1) {
+                if (wordActors[i].getAddedToHashMap() == 0) {
+                    //check if word already exists in hashmap, else add it to Hashmap
+                    if (!checkWordExistsInHashmap(wordActors[i].getText())) {
+                        addToHashMap(wordActors[i].getText());
+                        wordActors[i].setAddedToHashMap(1);
+                        //Update entire sentence containing this word
+                        // updateSimilarInHashMap(wordActors[i].getText(), 1);
+                    } else {
+                        wordActors[i].setAddedToHashMap(1);
+                    }
+
+                }
+
+            }
+
+            if (wordActors[i].getSelected() == 0) {
+                if (wordActors[i].getAddedToHashMap() == 1) {
+                    //check if word exists in hashmap, and then remove From Hashmap
+                    if (checkWordExistsInHashmap(wordActors[i].getText())) {
+                        removeFromHashMap(wordActors[i].getText());
+                        wordActors[i].setAddedToHashMap(0);
+                        //Update entire sentence containing this word
+                       // updateSimilarInHashMap(wordActors[i].getText(), 0);
+                    } else {
+                        wordActors[i].setAddedToHashMap(0);
+                    }
+
+                }
+            }
+        }
+    }
+
     public void addToHashMap(String text) {
-        //check if element not alraedy present
+        System.out.println("Value of key is: " + key);
+        hmap.put(text , key);
+        key++;
     }
-    
+
     public void removeFromHashMap(String text) {
-        //check if it exists before removing
+        hmap.remove(text);
     }
-    
+
+    public boolean checkWordExistsInHashmap (String text) {
+        // for (String value: hmap.values()) {
+        //            if (value.contains(text)) {
+        if (hmap.containsKey(text)) {
+            System.out.println("Word " + text + " is already present in HashMap");
+            return true;
+        }
+        //  }
+        System.out.println("Word " + text + " is not present in HashMap");
+
+        return false;
+    }
+
+    public void updateSimilarInSentence(String text, int value) {
+        for (int i=0; i<words.length; i++) {
+            if (wordActors[i].getText() == text) {
+                wordActors[i].setSelected(value);
+            }
+        }
+
+    }
+
+    public void updateSimilarInHashMap(String text, int value) {
+        for (int i=0; i<words.length; i++) {
+            if (wordActors[i].getText() == text) {
+                wordActors[i].setAddedToHashMap(value);
+            }
+        }
+    }
+
     public void calculateResult() {
-        
+
     }
 }
