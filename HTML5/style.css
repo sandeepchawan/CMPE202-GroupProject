@@ -1,0 +1,36 @@
+body{
+	background-color: #C6CDD5;
+	padding:10px;
+}
+
+#playArea{
+	width: 700px;
+	height: 500px;
+	display: block;
+	background-color: white;
+	margin: auto;
+	border-radius: 8px;
+}
+
+#string{
+	padding: 30px;
+}
+
+#playArea p{
+	font-size: 25px;
+	font-family: 'Poiret One', cursive;
+	margin: 4px;
+	display: inline;
+	float: left;
+}
+
+#droppable{
+	bottom: 15%;
+	left: 43%;
+	position: absolute;
+	max-height: 30%;
+	max-width:30%;
+	height: auto;
+	width: auto;
+	display: block;
+}
