@@ -16,11 +16,13 @@ public class Sentence extends Actor
 
     private String[] words;
     CompressionWorld cWorld;
-    private static int x = 40;
+    private static int x = 80;
     private int length;
     private Word[] wordActors;
     HashMap<String, Integer> hmap;
     private int key;
+    private int unCompressedLength;
+    private int compressedLength;
 
     public Sentence (int length) {
 
@@ -28,6 +30,7 @@ public class Sentence extends Actor
         setImage("buttonPlay.png");
         image.scale(50, 50);
         this.length = length;
+        this.compressedLength = 0;
         this.key = 1;
         hmap = new HashMap<String, Integer>();
     }
@@ -48,8 +51,19 @@ public class Sentence extends Actor
                 cWorld.addObject(wordActor, x, 200);
                 x += 80;
             }
-            x=40;
+            x=80;
+            updateUncompressedLength();
         }   
+    }
+
+    public void updateUncompressedLength() {
+        unCompressedLength = 0;
+
+        for (int i=0; i<words.length; i++) {
+
+            unCompressedLength += wordActors[i].getText().length();
+
+        }
     }
 
     public void addWord (String word, int pos) {
@@ -68,16 +82,12 @@ public class Sentence extends Actor
 
     public void act() 
     {
-        // Add your action code here.
 
-        //displayWord("Test");
         if (Greenfoot.mouseClicked(this)) {
             System.out.println("Clicked on Sentence!");
             prepare();
         }
-        /*  for (int i=0; i<words.length; i++) {
-        displayWord(words[i]);
-        } */
+
     }    
 
     public void actOnWord(String text) {
@@ -86,17 +96,11 @@ public class Sentence extends Actor
             if (wordActors[i].getText() == text) {
                 wordActors[i].toggle();
                 System.out.println("Toggled word !!!");
-                //wordActors[i] = word;
-                // if (word.getSelected() == 1) {
-                // updateSimilarInSentence(wordActors[i].getText(), 1);
-                // } else {
-                // updateSimilarInSentence(wordActors[i].getText(), 0);
-                // }
-                // return;
             }
         }
 
         updateHashMap();
+        calculateResult();
 
     }
 
@@ -109,8 +113,6 @@ public class Sentence extends Actor
                     if (!checkWordExistsInHashmap(wordActors[i].getText())) {
                         addToHashMap(wordActors[i].getText());
                         wordActors[i].setAddedToHashMap(1);
-                        //Update entire sentence containing this word
-                        // updateSimilarInHashMap(wordActors[i].getText(), 1);
                     } else {
                         wordActors[i].setAddedToHashMap(1);
                     }
@@ -125,8 +127,6 @@ public class Sentence extends Actor
                     if (checkWordExistsInHashmap(wordActors[i].getText())) {
                         removeFromHashMap(wordActors[i].getText());
                         wordActors[i].setAddedToHashMap(0);
-                        //Update entire sentence containing this word
-                       // updateSimilarInHashMap(wordActors[i].getText(), 0);
                     } else {
                         wordActors[i].setAddedToHashMap(0);
                     }
@@ -134,6 +134,7 @@ public class Sentence extends Actor
                 }
             }
         }
+
     }
 
     public void addToHashMap(String text) {
@@ -147,13 +148,11 @@ public class Sentence extends Actor
     }
 
     public boolean checkWordExistsInHashmap (String text) {
-        // for (String value: hmap.values()) {
-        //            if (value.contains(text)) {
+
         if (hmap.containsKey(text)) {
             System.out.println("Word " + text + " is already present in HashMap");
             return true;
         }
-        //  }
         System.out.println("Word " + text + " is not present in HashMap");
 
         return false;
@@ -177,6 +176,33 @@ public class Sentence extends Actor
     }
 
     public void calculateResult() {
+        //Check is word exists in hashmap, if yes add a 1 to the result, 
+        // else add length of the string to the result
+        compressedLength = 0;
+
+        System.out.println("Calling calculate Result !!!");
+        for (int i=0; i<words.length; i++) {
+            if (checkWordExistsInHashmap(wordActors[i].getText())) {
+                compressedLength += 1;
+            } else {
+                compressedLength += wordActors[i].getText().length();
+            }
+        }
+
+        //Finally add up the string lengths in hashmap
+        for (String key : hmap.keySet()) {
+            if (key.length() > 0) {
+                compressedLength += key.length() + 1; //Extra +1 is for the integer associated with the string
+            }
+        }
 
     }
+    public int getCompressedLength() {
+        return compressedLength;
+    }
+
+    public int getUncompressedLength() {
+        return unCompressedLength;
+    }
+
 }

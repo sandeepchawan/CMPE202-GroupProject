@@ -27,25 +27,13 @@ public class Word extends Actor
     
     public void act() 
     {
-        //GreenfootImage image = getImage();
+      
         cWorld = (CompressionWorld) getWorld();
         sentence = cWorld.getSentence();
         if (Greenfoot.mouseClicked(this)) {
             sentence.actOnWord(text);
         }
-        // if (Greenfoot.mouseClicked(this)) {
-            // System.out.println("clicked on word "+ text);
-            // if (this.selected == 0) {
-            // this.selected = 1; 
-            // //setImage(new GreenfootImage(" " + text + " ", 20, Color.white, Color.red));
-            // System.out.println("Color changed to red for word: "+ text);
-            // //change background color? or update all after every single click?
-        // } else {
-            // this.selected = 0;
-            // System.out.println("Color changed to green for word: "+ text);
-           // // setImage(new GreenfootImage(" " + text + " ", 20, Color.white, Color.green));
-        // }
-            //change background color?
+       
             
         }
 
@@ -56,7 +44,7 @@ public class Word extends Actor
             this.selected = 1;
             setImage(new GreenfootImage(" " + text + " ", 20, Color.white, Color.red));
             System.out.println("Color changed to red for word: "+ text);
-            //change background color? or update all after every single click?
+            
         } else {
             this.selected = 0;
             System.out.println("Color changed to green for word: "+ text);

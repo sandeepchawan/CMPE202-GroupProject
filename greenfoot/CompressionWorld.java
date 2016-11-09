@@ -7,6 +7,7 @@ public class CompressionWorld extends World
     private static int x = 30;
     int length = 5;
     private Sentence sentence;
+    private Result result;
 
     public CompressionWorld()
     {    
@@ -21,20 +22,11 @@ public class CompressionWorld extends World
      */
     private void prepare()
     {
-        sentence = new Sentence(5);
-        addObject(sentence, 331, 71);
-        //sentence.prepare();
-
+        sentence = new Sentence(9);
+        addObject(sentence, 351, 71);
         
-        // words = new String[length];
-        // if(length > 0) {
-            // for (int i=0; i<length; i++) {
-                // words[i] = "sample";
-                // addObject(new Word(words[i]), x, 10);
-                // x += 60;
-            // }
-             // x=10;
-        // }   
+        result = new Result();
+        addObject(result, 351, 391);
 
     }
     
