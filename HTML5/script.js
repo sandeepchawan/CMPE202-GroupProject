@@ -29,12 +29,12 @@ $(function(){
 	  		}
 		});  
 		if(count<2){
-			//console.log("yes");
 			$(this).effect("shake");
 		}
 		else{
 			$(this).animateCss('bounce');
-
+      var text = $("#draggable p").innerText;
+      console.log(text);
 		}
       }
     });
