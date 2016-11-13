@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+ 
+<style>
+      body {
+    background-image: url("box.jpg");
+    background-repeat: repeat-y;
+
+} 
+ 
+
+
+</style>
+ 
+</head>
+ 
+<body>
+
+ 
+</body>
+</html>
