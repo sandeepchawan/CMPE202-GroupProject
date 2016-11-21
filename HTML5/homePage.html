@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trip Planner</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Acme|Josefin+Slab" rel="stylesheet">
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">       
+    </script>
+</head>
+<body>
+	<div class="container text-center">
+		<h1>Trip Planner</h1>
+		<p class="lead sub-heading">Plan your trip to be cheapest</p>
+	</div>
+	
+	<div class="container details text-primary">
+		<div class="row text-center customize-heading">
+			<h3>Customize your options</h3>
+		</div>
+		<div class="row details-body">
+			<div class="col-sm-4">
+				<div class="address-boxes">
+					<input type="text" class="form-control address" id="pac-input1" onfocus="getPlaces(this.id)" placeholder="Source Address">
+					<input type="text" class="form-control address" id="pac-input2" onfocus="getPlaces(this.id)" placeholder="Destination">
+				</div>
+				<button type="button" class="btn btn-primary text-center add-button"><strong>+</strong> Add More Destination</button>
+			</div>
+			<div class="col-sm-2 text-center text-muted options">
+				<p>Weather Report</p>
+				<input type="checkbox" class="option-button" checked data-toggle="toggle" >
+				<p class="option-text">Yelp Suggestions</p>
+				<input type="checkbox" class="option-button" checked data-toggle="toggle">				
+				<p class="option-text">Other Places Around</p>
+				<input type="checkbox" class="option-button" checked data-toggle="toggle">
+				<p><button type="button" class="btn btn-primary text-center go-button">Fetch Results</button><p>
+			</div>
+			<div class="col-sm-6" id="map">				
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?&callback=initMap&libraries=places"></script>
+	<script type="text/javascript" src="js/autocomplete_script.js"></script>
+	</body>
+</html>
