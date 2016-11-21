@@ -13,6 +13,8 @@ public class CompressionWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+  
+       // this.setBackground(new GreenfootImage("greyBG.jpg"));
         prepare();
     }
 
@@ -26,12 +28,16 @@ public class CompressionWorld extends World
         addObject(sentence, 351, 71);
         
         result = new Result();
-        addObject(result, 351, 391);
+        //addObject(result, 351, 391);
 
     }
     
     public Sentence getSentence() {
         return sentence;
+    }
+    
+    public Result getResult() {
+        return result;
     }
 
 }

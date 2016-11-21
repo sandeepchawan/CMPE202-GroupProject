@@ -27,7 +27,7 @@ public class Sentence extends Actor
     public Sentence (int length) {
 
         GreenfootImage image = getImage() ;
-        setImage("buttonPlay.png");
+        setImage("playnow.png");
         image.scale(50, 50);
         this.length = length;
         this.compressedLength = 0;
@@ -85,6 +85,8 @@ public class Sentence extends Actor
 
         if (Greenfoot.mouseClicked(this)) {
             System.out.println("Clicked on Sentence!");
+            //add submit button to screen
+            addSubmitButtonToWorld();
             prepare();
         }
 
@@ -197,12 +199,18 @@ public class Sentence extends Actor
         }
 
     }
+
     public int getCompressedLength() {
         return compressedLength;
     }
 
     public int getUncompressedLength() {
         return unCompressedLength;
+    }
+
+    public void addSubmitButtonToWorld() {
+        //  ((CompressionWorld) getWorld()).addObject(result, 351, 391);
+        ((CompressionWorld)getWorld()).addObject(((CompressionWorld)getWorld()).getResult(), 351, 391);
     }
 
 }

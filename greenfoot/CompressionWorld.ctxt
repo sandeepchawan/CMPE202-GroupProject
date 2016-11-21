@@ -7,4 +7,6 @@ comment2.target=void\ prepare()
 comment2.text=\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\ That\ is\:\ create\ the\ initial\n\ objects\ and\ add\ them\ to\ the\ world.\n
 comment3.params=
 comment3.target=Sentence\ getSentence()
-numComments=4
+comment4.params=
+comment4.target=Result\ getResult()
+numComments=5

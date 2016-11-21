@@ -18,7 +18,7 @@ public class Result extends Actor
     public Result()
     {
         GreenfootImage image = getImage() ;
-        setImage("buttonSubmit3.png");
+        setImage("buttonSubmit5.jpg");
         image.scale(20, 20);
         percentage = 0;
         compressedLength = 0;
