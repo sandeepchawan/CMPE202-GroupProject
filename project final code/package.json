@@ -1,0 +1,28 @@
+{
+  "name": "compresso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "init": "^0.1.2",
+    "express": "^*",
+    "socket.io": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "6.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prabhutejpulagam/compresso.git"
+  },
+  "author": "Prabhu Tej",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prabhutejpulagam/compresso/issues"
+  },
+  "homepage": "https://github.com/prabhutejpulagam/compresso#readme"
+}

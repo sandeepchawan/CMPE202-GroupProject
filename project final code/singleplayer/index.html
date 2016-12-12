@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Compresso</title>	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="container title text-center"><h1>Compresso</h1></div>
+	<div class="container main-box">
+		<div class="row text-center">
+			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#gameModal">Single Player</button>
+		</div>
+		<div class="row text-center">
+			<button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='multiplayer/multiplayer.html'">Multiplayer</button>
+		</div>
+		<div class="row text-center">
+			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#tutorialModal">Tutorial</button>
+		</div>
+	</div>
+
+	<!-- Game Configuration Modal Starts Here -->
+
+	<form action="singlePlayer.html" method="GET" name="configForm">
+		<div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title text-center" id="myModalLabel">Game Configurations</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="container">
+		        	<div class="row game-option1">
+		        		<h4>Game Duration</h4>
+		        		<label class="radio-inline">
+						  <input type="radio" name="duration" id="inlineRadio1" value="20"> 20 Seconds
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="duration" id="inlineRadio2" value="40" checked> 40 Seconds
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="duration" id="inlineRadio3" value="60"> 60 Seconds
+						</label>
+		        	</div>
+		        	<div class="row game-option">
+		        		<h4>Difficulty</h4>
+		        		<label class="radio-inline">
+						  <input type="radio" name="difficulty" id="inlineRadio1" value="easy"> Easy
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="difficulty" id="inlineRadio2" value="medium" checked> Medium
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="difficulty" id="inlineRadio3" value="hard"> Hard
+						</label>
+		        	</div>
+		        	<div class="row game-option">
+		        		<h4>String Type</h4>
+		        		<label class="radio-inline">
+						  <input type="radio" name="stringType" id="default-string-rbutton" value="default" checked> Default (System Generated)
+						</label>
+		        	</div>
+		        	<div class="row">
+		        		<div class="col-sm-5">
+		        			<textarea class="form-control" id="custom-string" name="custom-string" rows="3" placeholder="Custom String"></textarea>
+		        		</div>
+		        	</div>
+
+		        </div>
+		      </div>
+		      <div class="modal-footer ">
+		        <button type="button" id="launch-button" class="btn btn-primary" name="launch" onclick="sendConfig()">Launch Game</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</form>
+	<!-- Game Configuration Modal Ends Here -->
+
+	<div class="modal fade" id="tutorialModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title text-center" id="myModalLabel">Tutorial</h4>
+	      </div>
+	      <div class="modal-body">
+	        <h3 class="text-center">Compresso</h3><br>
+	        <!-- <h4>About Text Compression</h4>
+	        <p>Text Compression is all about reducing the amount of information but without the sense of losing actual information, trying to compress it and shorten it in such a way that could recover full information that one has started with.</p>
+
+	        <p>Here in this game you will be able to learn the compression technique and how compression is done, which is all about finding the repeated occurrences of the word and change the actual text to a format that when decompressed gives the actual information.</p>
+
+	        <p>By compressing the data, the amount of disk space needed to store will reduce, faster reading and writing , also in terms of transferring over a network will cost less.</p><br><br> -->
+
+	        <h4>About The Game</h4>
+	        <p>In Compresso, the player learns how compression can be done, here the player needs to identify the words that are repeated and drag the word and drop it into the compression box. Here the player needs to drag all the occurrences of the word.</p>
+
+	        <p>In the game there are three levels, say easy medium and hard and with three different time intervals.</p><br><br>
+
+	        <h4>How To Play The Game</h4>
+	        <ul>
+	        	<li>Select the mode and Time-Interval of the game.</li>
+	        	<li>Now, search for the words that has maximum frequency of occurrence, select the word and drag and drop the word into the compression box</li>
+	        	<li>Find all possible words such that maximum compression can be done</li>
+	        	<li>Once all the words are identified and dropped into the box click on Finish!!</li>
+	        </ul>
+
+	        <h4>Dont's</h4>
+	        <ul>
+	        	<li>Do not select the word if is not repeated which results in score deduction</li>
+	        </ul>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+body{
+	background-color: #C6CDD5;
+}
+
+#play-area{	
+	background-color: white;
+	border-radius: 7px;
+	padding: 25px 20px;
+	min-height: 500px;
+	max-width: 800px;
+}
+
+.string p{	
+	font-size: 25px;
+	font-family: 'Poiret One', cursive;
+	margin: 4px;
+	display: inline;
+	float: left;
+}
+.string{
+	background-color: white;
+	margin: 0px 50px; 
+	min-height: 270px;
+}
+
+#droppable{
+	max-height: 200px;
+	max-width: 200px;
+}
+
+.main-container{
+	margin-top: 30px;
+}
+
+#timer-box{
+	background-color: white;
+	margin: 0px 25px;
+	border-radius: 7px;
+	padding: 25px 0px;
+}
+
+#timer-box p{
+	font-family: 'Exo', sans-serif;
+	font-size: 40px;
+}
+
+#clock{
+	font-family: 'Quicksand', sans-serif;
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+#score-box{
+	background-color: white;
+	margin: 25px 25px;
+	border-radius: 7px;
+	padding: 25px 0px;
+	font-family: 'Exo', sans-serif;
+	font-size: 40px;
+}
+
+#score{
+	font-family: 'Quicksand', sans-serif;
+	font-size: 30px;
+}
+
+#reset, #finish{
+	font-family: 'Quicksand', sans-serif;
+	font-size: 30px;
+	border-radius: 7px;
+	background-color: white;
+	margin: 25px 25px;
+	cursor: pointer;
+}
+
+img{
+	margin-top: 10px;
+	padding: 5px 0px;
+}
+
+.modal-title{
+	text-align: center;
+}
+
+.modal-footer{
+	text-align: center;
+}
+
+.stats-head{
+	margin-top: 50px;
+}
+
+.alert{
+	margin-bottom: -60px;
+}
+
+.close{
+	margin-bottom: -37px;
+}

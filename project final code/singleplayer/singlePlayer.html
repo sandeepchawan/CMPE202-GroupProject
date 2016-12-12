@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Compresso</title>		
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One|Quicksand|Exo" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js">
+	<link rel="stylesheet" type="text/css" href="css/singlePlayer_style.css">
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	
+</head>
+<body>
+	<div class="container main-container">		
+		<div class="row">
+			<div  class="col-md-3 text-center">
+				<div id="timer-box">
+					<p>Timer</p>
+					<div id="clock"></div>
+				</div>
+				<div id="score-box">
+					<p>Score</p>
+					<p id="score">00</p>
+				</div>
+				<div id="reset">
+					<p onclick="hint()">Hint</p>
+				</div>
+
+				<div id="finish">
+					 <p onclick="finish()">Finish</p>
+				</div>
+			</div>
+			
+			<div class="col-md-9" id="play-area">
+				<div class="string row">
+				</div>
+				<div class="row image text-center">
+					<img id="droppable" src="img/box.png">
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+
+	<!-- Result modal starts here-->
+	<div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Game Results</h4>
+	      </div>
+	      <div class="modal-body">
+	        <!-- <h3 id= "yourresult" class="text-center">Superb! You managed a total of 64% compression</h3> -->
+	        <h3 id= "yourresult" class="text-center"></h3>
+	        <!-- <h4 id ="bestresult" class="text-center">Maximum possible compression for this string is 57%</h4> -->
+	        <h4 id ="bestresult" class="text-center"></h4>
+	        <h4 class="text-center lead stats-head muted">Here are some of the stats</h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary col-md-offset-4 col-md-4" data-dismiss="modal">Superb!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Result modal ends here-->
+	
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>	
+	<script type="text/javascript" src="js/compressionStrings.js"></script>
+	<script type="text/javascript" src="js/removeSymbols.js"></script>
+	<script type="text/javascript" src="js/parseQueryString.js"></script>
+	<script type="text/javascript" src="js/pointsIncrementor.js"></script>
+	<script type="text/javascript" src="js/Iterator.js"></script>
+	<script type="text/javascript" src="js/finish.js"></script>
+	<script type="text/javascript" src="js/singlePlayer_script.js"></script>
+    <script type="text/javascript" src="js/strategy.js"></script>
+</body>
+</html>

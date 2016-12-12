@@ -1,0 +1,30 @@
+body{
+	background-color: #C6CDD5;
+}
+
+.main-box{	
+	background-color: white;
+	margin-top: 15px;
+	border-radius: 7px;
+	padding: 100px 0px;
+	max-width: 800px;
+}
+
+.btn{
+	min-width: 200px;
+	margin: 20px;
+	border-radius: 20px;
+}
+
+.modal-footer{
+	text-align: center;
+}
+
+.game-option h4{
+	margin-top: 35px;
+}
+
+#custom-string{
+	margin: 15px -15px;
+	border-radius: 3px;
+}
