@@ -25,3 +25,21 @@ The folder 'project final code' consists of the source code. The folder structur
     ->singleplayer.html
   -> package.json
   -> Procfile
+
+project final code
+├── app.js
+├── multiplayer                    
+│   ├── css          
+│   ├── img         
+│   ├── js
+|   └── mutiplayer.html
+├── single player                    
+│   ├── css          
+│   ├── img        
+│   ├── js
+|    ├── singleplayer.html
+|    └──index.html
+├── node modules
+├──package.json
+├──Procfile
+└── ...
