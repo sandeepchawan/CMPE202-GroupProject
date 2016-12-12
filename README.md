@@ -9,37 +9,22 @@ The game app has been deployed on Heroku and has been scaled to multiple users.
 We have used few design patterns such as facade, strategy, iterator, decorator, factory in our project.
 
 The folder 'project final code' consists of the source code. The folder structure is as follows:
--> project final code
-  -> app.js(Http Node.js Server)
-  -> multiplayer
-    ->css
-    ->img
-    ->js
-    ->multiplayer.html
-  -> node modules
-  -> single player
-    ->css
-    ->img
-    ->js
-    ->index.html
-    ->singleplayer.html
-  -> package.json
-  -> Procfile
 
-project final code
-├── app.js
+project final code                    
+
+├── app.js                      
 ├── multiplayer                    
 │   ├── css          
 │   ├── img         
-│   ├── js
-|   └── mutiplayer.html
-├── single player                    
-│   ├── css          
-│   ├── img        
-│   ├── js
-|    ├── singleplayer.html
-|    └──index.html
-├── node modules
-├──package.json
-├──Procfile
+│   ├── js                          
+│   └── mutiplayer.html                     
+├── single player                             
+│   ├── css                         
+│   ├── img                      
+│   ├── js                                  
+│   ├── singleplayer.html                             
+│   └──index.html                       
+├── node modules                            
+├──package.json                               
+├──Procfile                               
 └── ...
